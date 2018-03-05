@@ -4,6 +4,7 @@
         <h1>{{ msg }}</h1>
         <div class="inline-button" @click="onMachinesListClick"><router-link to="/list"> Consulter la liste des machines </router-link></div>
         <div class="inline-button" @click="onMapClick"><router-link to="/map"> Voir la carte </router-link></div>
+        <div class="inline-button" @click="onMapClick"><router-link to="/machine"> Voir la machine </router-link></div>
         <router-view> </router-view>
     </div>
 </template>
@@ -11,12 +12,14 @@
 <script>
     import MachinesList from "./MachinesList.vue";
     import MachinesMap from "./MachinesMap.vue";
+    import MachineView from "./Machine.vue";
 
     export default {
         name: 'app',
         components: {
             MachinesMap,
-            MachinesList
+            MachinesList,
+            MachineView
         },
 
         data () {
