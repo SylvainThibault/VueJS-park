@@ -2,31 +2,35 @@
   <div id="app">
     <img src="http://vuejs.org/images/logo.png">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vueify" target="_blank">vueify</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <div class="inline-button" @click="onMachinesListClick">Consulter la liste des machines</div>
+    <div class="inline-button" @click="onMapClick">Voir la carte</div>
+    <machines-list></machines-list>
+    <machines-map></machines-map>
   </div>
 </template>
 
 <script>
+import MachinesList from "./MachinesList.vue";
+import MachinesMap from "./MachinesMap.vue";
+
 export default {
-  name: 'app',
+    components: {
+        MachinesMap,
+        MachinesList},
+    name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: "Qu'est-ce tu veux faire gros ?"
     }
-  }
+  },
+    methods: {
+        onMachinesListClick: function(){
+            window.alert('machines');
+        },
+        onMapClick: function() {
+            window.alert('maps')
+        }
+    },
 }
 </script>
 
@@ -62,4 +66,11 @@ li {
 a {
   color: #42b983;
 }
+
+.inline-button {
+    display: inline-block;
+    background-color: #14b776;
+    color: white;
+    padding: 20px 40px;
+    }
 </style>
