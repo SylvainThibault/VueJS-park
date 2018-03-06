@@ -5,12 +5,12 @@ Vue.use(VueRouter);
 
 import MachinesList from "./MachinesList.vue";
 import MachinesMap from "./MachinesMap.vue";
-import MachineView from "./Machine.vue";
+import Machine from "./Machine.vue";
 
 const routes = [
-    {path: '/list' , component: MachinesList},
+    {path: '/machines' , component: MachinesList},
     {path: '/map' , component: MachinesMap},
-    {path: '/machine' , component: MachineView}
+    {path: '/machine' , component: Machine}
 ];
 
 const router = new VueRouter({

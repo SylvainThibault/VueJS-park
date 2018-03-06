@@ -1,32 +1,26 @@
 <template>
     <div>
-        <h1>Machine {{name}}</h1>
-        <h3 v-bind:class="statusColor">{{getStatus()}}</h3>
-        <h5>Last time checked : {{checkedAt.toLocaleString('en-GB', {timeZone: 'UTC'})}}</h5>
+        <h1>Machine {{machine.name}}</h1>
+        <h3 v-bind:class="machine.statusColor">{{getStatus()}}</h3>
+        <h5>Last time checked : {{machine.checkedAt.toLocaleString('en-GB', {timeZone: 'UTC'})}}</h5>
     </div>
 </template>
 
 <script>
     export default {
-        name: "machine-view",
-        data() {
-            return {
-                name: 'What else ?',
-                status: true,
-                checkedAt: new Date(),
-                statusColor: 'red'
-            }
-        },
+        name: "machine",
+        props: ['machine'],
+
         methods: {
             getStatus: function () {
-                if (this.status === true) {
-                    this.statusColor = 'green';
+                if (this.machine.status) {
+                    this.machine.statusColor = 'green';
                     return 'Status OK'
                 }
-                if (this.status === false) {
-                    this.statusColor = 'red';
-                    return 'Status KO'
-                }
+
+                this.machine.statusColor = 'red';
+                return 'Status KO'
+
             }
         }
     }
